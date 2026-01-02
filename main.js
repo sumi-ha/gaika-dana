@@ -84,6 +84,7 @@ document.getElementById('add-form').addEventListener('submit', e => {
   data.push({ currency, amount });
   save();
   render();
+  e.target.reset();
 });
 
 // delete処理
