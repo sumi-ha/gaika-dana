@@ -105,6 +105,11 @@ document.getElementById('add-form').addEventListener('submit', e => {
   e.target.reset();
 });
 
+// reloadボタン
+document.getElementById('reload-btn').addEventListener('click', async () => {
+  location.reload();
+});
+
 //
 init();
 load();
