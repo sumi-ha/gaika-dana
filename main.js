@@ -53,7 +53,7 @@ async function render() {
       console.warn('rate missing:', item.currency);
       return { ...item, yen: 0 };
     }
-    return { ...item, yen: item.amount / rate };
+    return { ...item,yen_rate: 1 / rate, yen: item.amount / rate };
   });
 
   converted.forEach((item, index) => {
@@ -62,6 +62,7 @@ async function render() {
     tr.dataset.index = index;
     tr.innerHTML = `
       <td class="px-4 py-2 text-left">${item.currency}</td>
+      <td class="px-4 py-2 text-right">${Math.round(item.yen_rate).toLocaleString('ja-JP')}</td>
       <td class="px-4 py-2 text-right">${item.amount}</td>
       <td class="px-4 py-2 text-right">${Math.round(item.yen).toLocaleString('ja-JP')}</td>
       <td class="text-center">
